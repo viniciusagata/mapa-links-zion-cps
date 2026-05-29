@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa Interativo de Links</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <p class="header-eyebrow">Zion Church · Campinas</p>
+    <h1>Encontre um Link perto de você</h1>
+    <p>Veja os Links disponíveis e preencha o formulário de interesse para participar.</p>
+  </header>
+
+  <main>
+
+    <!-- Filtros -->
+    <section class="filtros-section" aria-label="Filtros">
+      <div class="filtros-container">
+        <div class="filtro-grupo">
+          <label for="filtro-faixa">Faixa etária</label>
+          <select id="filtro-faixa">
+            <option value="">Todas</option>
+            <option value="Rise">Rise — 12 a 14 anos</option>
+            <option value="Flow">Flow — 15 a 17 anos</option>
+            <option value="Vox">Vox — 18 a 29 anos</option>
+            <option value="Eklektos">Eklektos — 30 a 39 anos</option>
+            <option value="Família">Família</option>
+          </select>
+        </div>
+        <div class="filtro-grupo">
+          <label for="filtro-dia">Dia da semana</label>
+          <select id="filtro-dia">
+            <option value="">Todos</option>
+            <option value="Segunda-feira">Segunda-feira</option>
+            <option value="Terça-feira">Terça-feira</option>
+            <option value="Quarta-feira">Quarta-feira</option>
+            <option value="Quinta-feira">Quinta-feira</option>
+            <option value="Sexta-feira">Sexta-feira</option>
+            <option value="Sábado">Sábado</option>
+            <option value="Domingo">Domingo</option>
+          </select>
+        </div>
+        <div class="filtro-grupo">
+          <label for="filtro-regiao">Região / Cidade</label>
+          <select id="filtro-regiao">
+            <option value="">Todas</option>
+          </select>
+        </div>
+        <button id="btn-limpar" class="btn-limpar" type="button">Limpar filtros</button>
+      </div>
+    </section>
+
+    <!-- Mapa + Lista -->
+    <section class="conteudo-principal">
+      <div id="mapa" role="application" aria-label="Mapa interativo de Links"></div>
+      <aside class="lista-lateral" id="lista-lateral" aria-label="Lista de Links presenciais">
+        <h2 class="lista-titulo">Links Presenciais</h2>
+        <div id="lista-items"></div>
+        <p id="sem-resultado" class="sem-resultado" hidden>
+          Nenhum Link encontrado com esses filtros. Tente selecionar outra faixa etária, dia ou região.
+        </p>
+      </aside>
+    </section>
+
+    <!-- Legenda -->
+    <div class="legenda" aria-label="Legenda de cores por faixa etária">
+      <span class="legenda-item"><span class="legenda-dot dot-Família"></span>Família</span>
+      <span class="legenda-item"><span class="legenda-dot dot-Eklektos"></span>Eklektos · 30–39 anos</span>
+      <span class="legenda-item"><span class="legenda-dot dot-Vox"></span>Vox · 18–29 anos</span>
+      <span class="legenda-item"><span class="legenda-dot dot-Flow"></span>Flow · 15–17 anos</span>
+      <span class="legenda-item"><span class="legenda-dot dot-Rise"></span>Rise · 12–14 anos</span>
+    </div>
+
+    <!-- Links Online -->
+    <section class="online-section">
+      <div class="online-header">
+        <span class="online-eyebrow">Remoto</span>
+        <h2 class="online-titulo">Links Online</h2>
+      </div>
+      <p class="online-subtitulo">Esses Links acontecem de forma remota e estão abertos para toda a cidade.</p>
+      <div id="lista-online" class="online-grid"></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Após preencher o formulário, a equipe da igreja entrará em contato com mais informações.</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
