@@ -326,8 +326,19 @@ body {
   margin-top: 10px;
   display: block;
   text-align: center;
-  padding: 8px 14px;
-  font-size: 0.85rem;
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  /* Sobrescreve as cores por faixa — teal com texto escuro garante 8.3:1 de contraste */
+  background: var(--zion-teal) !important;
+  color: var(--zion-dark) !important;
+  border-radius: 7px;
+  transition: background 0.15s, transform 0.1s;
+}
+.popup-link .btn-interesse:hover {
+  background: var(--zion-teal-2) !important;
+  transform: translateY(-1px);
 }
 
 /* ===== Marcadores ===== */
