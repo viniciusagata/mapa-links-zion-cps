@@ -178,9 +178,9 @@
 
       <div class="dialog-faixas">
         <span class="badge badge-Rise">Rise · 12-14</span>
-        <span class="badge badge-Flow">Flow · 15-18</span>
-        <span class="badge badge-Vox">Vox · 18-26</span>
-        <span class="badge badge-Eklektos">Eklektos · 27-39</span>
+        <span class="badge badge-Flow">Flow · 15-17</span>
+        <span class="badge badge-Vox">Vox · 18-29</span>
+        <span class="badge badge-Eklektos">Eklektos · 30-39</span>
         <span class="badge badge-Família">Família</span>
       </div>
 
@@ -209,15 +209,11 @@
       const btnCta = document.getElementById('dialog-cta-mapa');
 
       btnOpen.addEventListener('click', () => dialog.showModal());
-      btnClose.addEventListener('click', () => dialog.close());
+      btnClose.addEventListener('click', (e) => { e.stopPropagation(); dialog.close(); });
       btnCta.addEventListener('click', () => dialog.close());
 
-      // Fecha ao clicar no backdrop
       dialog.addEventListener('click', (e) => {
-        const rect = dialog.getBoundingClientRect();
-        const outside = e.clientX < rect.left || e.clientX > rect.right
-                     || e.clientY < rect.top  || e.clientY > rect.bottom;
-        if (outside) dialog.close();
+        if (e.target === dialog) dialog.close();
       });
     })();
   </script>
