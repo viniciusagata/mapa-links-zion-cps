@@ -3,54 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mapa Interativo de Links</title>
+  <title>Links · Zion Church Campinas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <header class="site-header">
-    <p class="header-eyebrow">Zion Church · Campinas</p>
-    <h1>Encontre um Link perto de você</h1>
-    <p>Veja os Links disponíveis e preencha o formulário de interesse para participar.</p>
+    <div class="header-inner">
+
+      <!-- Barra da logo -->
+      <nav class="header-nav" aria-label="Zion Church">
+        <img src="assets/logo_zion.png" alt="Zion Church" class="header-logo-img" />
+      </nav>
+
+      <!-- Hero duas colunas -->
+      <div class="header-hero">
+
+        <div class="header-hero-left">
+          <p class="header-eyebrow">
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            Rede de Links Presenciais
+          </p>
+
+          <h1>
+            Encontre um Link
+            <span class="header-h1-dim">perto de você</span>
+          </h1>
+
+          <p class="header-sub">
+            Explore os Links disponíveis na sua região e preencha o formulário de interesse para participar de um encontro semanal.
+          </p>
+
+          <div class="header-ctas">
+            <a href="#mapa" class="btn-cta-primary">Ver Links no mapa</a>
+            <button id="btn-como-funciona" class="btn-cta-secondary">Como funciona</button>
+          </div>
+        </div>
+
+        <div class="header-hero-right">
+          <div class="header-info-card">
+            <p class="info-card-eyebrow">Sobre os Links</p>
+            <div class="info-card-stats">
+              <div class="info-stat">
+                <span class="info-stat-title">Semanal</span>
+                <span class="info-stat-desc">Encontros toda semana</span>
+              </div>
+              <div class="info-stat">
+                <span class="info-stat-title">Presencial</span>
+                <span class="info-stat-desc">Perto de você</span>
+              </div>
+            </div>
+            <div class="info-card-live">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span>Novos Links sendo abertos em diversas regiões.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </header>
 
   <main>
 
     <!-- Filtros -->
-    <section class="filtros-section" aria-label="Filtros">
-      <div class="filtros-container">
-        <div class="filtro-grupo">
-          <label for="filtro-faixa">Faixa etária</label>
-          <select id="filtro-faixa">
-            <option value="">Todas</option>
-            <option value="Rise">Rise — 12 a 14 anos</option>
-            <option value="Flow">Flow — 15 a 17 anos</option>
-            <option value="Vox">Vox — 18 a 29 anos</option>
-            <option value="Eklektos">Eklektos — 30 a 39 anos</option>
-            <option value="Família">Família</option>
-          </select>
+    <section class="filtros-section" id="como-funciona" aria-label="Filtros">
+      <button class="filtros-toggle-btn" id="filtros-toggle" type="button" aria-expanded="true" aria-controls="filtros-body">
+        <span class="filtros-toggle-label">Filtros</span>
+        <svg class="filtros-chevron" viewBox="0 0 10 6" width="10" height="6" fill="none" aria-hidden="true">
+          <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="filtros-body" id="filtros-body">
+        <div class="filtros-container">
+          <div class="filtro-grupo">
+            <label for="filtro-faixa">Faixa etária</label>
+            <select id="filtro-faixa">
+              <option value="">Todas</option>
+              <option value="Rise">Rise - 12 a 14 anos</option>
+              <option value="Flow">Flow - 15 a 17 anos</option>
+              <option value="Vox">Vox - 18 a 29 anos</option>
+              <option value="Eklektos">Eklektos - 30 a 39 anos</option>
+              <option value="Família">Família</option>
+            </select>
+          </div>
+          <div class="filtro-grupo">
+            <label for="filtro-dia">Dia da semana</label>
+            <select id="filtro-dia">
+              <option value="">Todos</option>
+              <option value="Segunda-feira">Segunda-feira</option>
+              <option value="Terça-feira">Terça-feira</option>
+              <option value="Quarta-feira">Quarta-feira</option>
+              <option value="Quinta-feira">Quinta-feira</option>
+              <option value="Sexta-feira">Sexta-feira</option>
+              <option value="Sábado">Sábado</option>
+              <option value="Domingo">Domingo</option>
+            </select>
+          </div>
+          <div class="filtro-grupo">
+            <label for="filtro-regiao">Região / Cidade</label>
+            <select id="filtro-regiao">
+              <option value="">Todas</option>
+            </select>
+          </div>
+          <button id="btn-limpar" class="btn-limpar" type="button">Limpar filtros</button>
         </div>
-        <div class="filtro-grupo">
-          <label for="filtro-dia">Dia da semana</label>
-          <select id="filtro-dia">
-            <option value="">Todos</option>
-            <option value="Segunda-feira">Segunda-feira</option>
-            <option value="Terça-feira">Terça-feira</option>
-            <option value="Quarta-feira">Quarta-feira</option>
-            <option value="Quinta-feira">Quinta-feira</option>
-            <option value="Sexta-feira">Sexta-feira</option>
-            <option value="Sábado">Sábado</option>
-            <option value="Domingo">Domingo</option>
-          </select>
-        </div>
-        <div class="filtro-grupo">
-          <label for="filtro-regiao">Região / Cidade</label>
-          <select id="filtro-regiao">
-            <option value="">Todas</option>
-          </select>
-        </div>
-        <button id="btn-limpar" class="btn-limpar" type="button">Limpar filtros</button>
       </div>
     </section>
 
@@ -68,30 +129,97 @@
 
     <!-- Legenda -->
     <div class="legenda" aria-label="Legenda de cores por faixa etária">
+      <span class="legenda-label">Legenda</span>
+      <span class="legenda-sep" aria-hidden="true"></span>
       <span class="legenda-item"><span class="legenda-dot dot-Família"></span>Família</span>
-      <span class="legenda-item"><span class="legenda-dot dot-Eklektos"></span>Eklektos · 30–39 anos</span>
-      <span class="legenda-item"><span class="legenda-dot dot-Vox"></span>Vox · 18–29 anos</span>
-      <span class="legenda-item"><span class="legenda-dot dot-Flow"></span>Flow · 15–17 anos</span>
-      <span class="legenda-item"><span class="legenda-dot dot-Rise"></span>Rise · 12–14 anos</span>
+      <span class="legenda-item"><span class="legenda-dot dot-Eklektos"></span>Eklektos · 30-39 anos</span>
+      <span class="legenda-item"><span class="legenda-dot dot-Vox"></span>Vox · 18-29 anos</span>
+      <span class="legenda-item"><span class="legenda-dot dot-Flow"></span>Flow · 15-17 anos</span>
+      <span class="legenda-item"><span class="legenda-dot dot-Rise"></span>Rise · 12-14 anos</span>
     </div>
+
+    <!-- Hairline divisor -->
+    <div class="section-divider" aria-hidden="true"></div>
 
     <!-- Links Online -->
     <section class="online-section">
       <div class="online-header">
-        <span class="online-eyebrow">Remoto</span>
+        <span class="online-eyebrow">· Remoto</span>
         <h2 class="online-titulo">Links Online</h2>
+        <p class="online-subtitulo">Esses Links acontecem de forma remota e estão abertos para toda a cidade.</p>
       </div>
-      <p class="online-subtitulo">Esses Links acontecem de forma remota e estão abertos para toda a cidade.</p>
       <div id="lista-online" class="online-grid"></div>
     </section>
 
   </main>
 
   <footer class="site-footer">
-    <p>Após preencher o formulário, a equipe da igreja entrará em contato com mais informações.</p>
+    <div class="footer-inner">
+      <p class="footer-text">Após preencher o formulário, a equipe da igreja entrará em contato com mais informações.</p>
+    </div>
   </footer>
+
+  <!-- Dialog "Como funciona" -->
+  <dialog id="dialog-como-funciona" class="zion-dialog">
+    <div class="dialog-inner">
+      <button class="dialog-close" aria-label="Fechar">
+        <svg viewBox="0 0 16 16" fill="none" width="12" height="12">
+          <path d="M1 1l14 14M15 1L1 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <p class="dialog-eyebrow">· O que são os Links</p>
+      <h2 class="dialog-title">Conexão que<br>transforma</h2>
+
+      <div class="dialog-body">
+        <p>Os <strong>LINKs</strong> são grupos de conexão que se reúnem como família nos lares, buscando a presença de Deus e compartilhando testemunhos de forma presencial ou online. Neste ambiente a cultura do reino é desenvolvida e a vida cristã é encorajada de forma intencional.</p>
+        <p>Os grupos são organizados por faixa etária. Se você está em Campinas ou proximidades, poderá procurar um LINK presencial - ou então se conectar aos grupos online.</p>
+      </div>
+
+      <div class="dialog-faixas">
+        <span class="badge badge-Rise">Rise · 12-14</span>
+        <span class="badge badge-Flow">Flow · 15-18</span>
+        <span class="badge badge-Vox">Vox · 18-26</span>
+        <span class="badge badge-Eklektos">Eklektos · 27-39</span>
+        <span class="badge badge-Família">Família</span>
+      </div>
+
+      <a href="#mapa" class="btn-cta-primary dialog-cta" id="dialog-cta-mapa">Ver Links no mapa</a>
+    </div>
+  </dialog>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="script.js"></script>
+  <script>
+    (function () {
+      const btn = document.getElementById('filtros-toggle');
+      const section = document.querySelector('.filtros-section');
+
+      btn.addEventListener('click', () => {
+        const collapsed = section.classList.toggle('filtros-collapsed');
+        btn.setAttribute('aria-expanded', String(!collapsed));
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      const dialog = document.getElementById('dialog-como-funciona');
+      const btnOpen = document.getElementById('btn-como-funciona');
+      const btnClose = dialog.querySelector('.dialog-close');
+      const btnCta = document.getElementById('dialog-cta-mapa');
+
+      btnOpen.addEventListener('click', () => dialog.showModal());
+      btnClose.addEventListener('click', () => dialog.close());
+      btnCta.addEventListener('click', () => dialog.close());
+
+      // Fecha ao clicar no backdrop
+      dialog.addEventListener('click', (e) => {
+        const rect = dialog.getBoundingClientRect();
+        const outside = e.clientX < rect.left || e.clientX > rect.right
+                     || e.clientY < rect.top  || e.clientY > rect.bottom;
+        if (outside) dialog.close();
+      });
+    })();
+  </script>
 </body>
 </html>
