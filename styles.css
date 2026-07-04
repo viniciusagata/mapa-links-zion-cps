@@ -24,8 +24,8 @@
   --rise-color:      #8b47c4;
   --flow-color:      #2471a3;
   --vox-color:       #1e8449;
-  --ekk-color:       #d4681a;
-  --familia-color:   #c0392b;
+  --ekk-color:       #c9a227;
+  --familia-color:   #d4681a;
 
   /* Typography */
   --font-display:    'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -545,8 +545,8 @@ body {
 .badge-Rise     { background: rgba(139, 71, 196, 0.13); color: #c49bd8; border: 1px solid rgba(139, 71, 196, 0.28); }
 .badge-Flow     { background: rgba(36, 113, 163, 0.13); color: #7fb8d8; border: 1px solid rgba(36, 113, 163, 0.28); }
 .badge-Vox      { background: rgba(30, 132, 73, 0.13);  color: #7dcba0; border: 1px solid rgba(30, 132, 73, 0.28); }
-.badge-Eklektos { background: rgba(212, 104, 26, 0.13); color: #eeab70; border: 1px solid rgba(212, 104, 26, 0.28); }
-.badge-Família  { background: rgba(192, 57, 43, 0.13);  color: #ee8a80; border: 1px solid rgba(192, 57, 43, 0.28); }
+.badge-Eklektos { background: rgba(201, 162, 39, 0.13); color: #f0d074; border: 1px solid rgba(201, 162, 39, 0.28); }
+.badge-Família  { background: rgba(212, 104, 26, 0.13);  color: #eeab70; border: 1px solid rgba(212, 104, 26, 0.28); }
 
 /* ===== Botões ===== */
 .btn-ver-mapa {
@@ -590,7 +590,7 @@ body {
 .btn-interesse-Rise     { background: var(--rise-color);    color: #fff; }
 .btn-interesse-Flow     { background: var(--flow-color);    color: #fff; }
 .btn-interesse-Vox      { background: var(--vox-color);     color: #fff; }
-.btn-interesse-Eklektos { background: var(--ekk-color);     color: #fff; }
+.btn-interesse-Eklektos { background: var(--ekk-color);     color: var(--zion-deep); }
 .btn-interesse-Família  { background: var(--familia-color); color: #fff; }
 
 .btn-interesse:hover {
@@ -871,8 +871,8 @@ body {
 .dot-Rise     { background: var(--rise-color);    box-shadow: 0 0 7px rgba(139, 71, 196, 0.55); }
 .dot-Flow     { background: var(--flow-color);    box-shadow: 0 0 7px rgba(36, 113, 163, 0.55); }
 .dot-Vox      { background: var(--vox-color);     box-shadow: 0 0 7px rgba(30, 132, 73, 0.55); }
-.dot-Eklektos { background: var(--ekk-color);     box-shadow: 0 0 7px rgba(212, 104, 26, 0.55); }
-.dot-Família  { background: var(--familia-color); box-shadow: 0 0 7px rgba(192, 57, 43, 0.55); }
+.dot-Eklektos { background: var(--ekk-color);     box-shadow: 0 0 7px rgba(201, 162, 39, 0.55); }
+.dot-Família  { background: var(--familia-color); box-shadow: 0 0 7px rgba(212, 104, 26, 0.55); }
 
 /* ===== Hairline divisor ===== */
 .section-divider {
